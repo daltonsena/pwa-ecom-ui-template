@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import { atom } from 'jotai'
 import { useUpdateAtom } from 'jotai/utils'
 import type { ReactNode } from 'react'
-import { createElement, Fragment, useEffect, useRef } from 'react'
+import { Fragment, createElement, useEffect, useRef } from 'react'
 import type { Root } from 'react-dom/client'
 import { createRoot } from 'react-dom/client'
 

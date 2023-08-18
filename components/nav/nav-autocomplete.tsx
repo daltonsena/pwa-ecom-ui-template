@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { m } from 'framer-motion'
 import { atom } from 'jotai'
 import { useAtomValue, useUpdateAtom } from 'jotai/utils'
-import { useRouter } from 'next/router'
+import { usePathname, useRouter } from 'next/navigation'
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 
 import { searchQueryAtom } from '@/components/@instantsearch/hooks/useUrlSync'
@@ -29,11 +29,12 @@ const isExpandedAtom = atom(
 )
 
 export function NavAutocomplete() {
+  const pathname = usePathname()
   const isLaptop = useLaptopMediaQuery()
 
   // Router
   const router = useRouter()
-  const isHomePage = useMemo(() => router?.pathname === '/', [router?.pathname])
+  const isHomePage = useMemo(() => pathname === '/', [pathname])
 
   // Get app state
   const { autocomplete: autocompleteConfig } = useAtomValue(configAtom)

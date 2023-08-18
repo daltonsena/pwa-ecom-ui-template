@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { useAtomValue } from 'jotai/utils'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { isSearchStalledAtom } from '@instantsearch/widgets/virtual-state-results/virtual-state-results'
@@ -20,7 +20,11 @@ export function Loader({ layout = 'overlay' }: LoaderProps) {
 
     const handleRouteChangeStart = (
       url: string,
-      { shallow }: { shallow: boolean }
+      {
+        shallow,
+      }: {
+        shallow: boolean
+      }
     ) => {
       if (shallow) return
 
@@ -31,7 +35,11 @@ export function Loader({ layout = 'overlay' }: LoaderProps) {
 
     const handleRouteChangeComplete = (
       url: string,
-      { shallow }: { shallow: boolean }
+      {
+        shallow,
+      }: {
+        shallow: boolean
+      }
     ) => {
       if (shallow) return
 
@@ -42,7 +50,11 @@ export function Loader({ layout = 'overlay' }: LoaderProps) {
     const handleRouteChangeError = (
       _: any,
       url: string,
-      { shallow }: { shallow: boolean }
+      {
+        shallow,
+      }: {
+        shallow: boolean
+      }
     ) => {
       handleRouteChangeComplete(url, { shallow })
     }

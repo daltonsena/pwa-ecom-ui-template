@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { useSearchParams } from 'next/navigation'
 import { useCallback } from 'react'
 import searchInsights from 'search-insights'
 
@@ -6,12 +6,13 @@ import type { ProductTagType } from '@/components/product/product-tag'
 import type { HitComponentProps, ProductHit } from '@/typings/hits'
 import { indexName } from '@/utils/env'
 
-import { ProductDetail } from './product-detail'
 import type { ProductDetailProps } from './product-detail'
+import { ProductDetail } from './product-detail'
 
 export type ProductDetailHitProps = HitComponentProps<ProductHit>
 
 export function ProductDetailHit({ hit }: ProductDetailHitProps) {
+  const searchParams = useSearchParams()
   const product: ProductDetailProps = {
     image: hit.image_urls[0],
     label: hit.brand,
@@ -55,8 +56,7 @@ export function ProductDetailHit({ hit }: ProductDetailHitProps) {
     )
   }
 
-  const router = useRouter()
-  const queryID = router?.query?.queryID as string
+  const queryID = searchParams?.get('queryID') as string
 
   const handleCheckoutClick = useCallback(() => {
     searchInsights(

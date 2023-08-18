@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai'
 import { useAtomValue } from 'jotai/utils'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 import { Pane as Tweakpane } from 'tweakpane'
 

@@ -8,7 +8,7 @@ import { memo } from 'react'
 
 import type { LogoProps } from '@/components/logo/logo'
 import { NavItem } from '@/components/nav/nav-item'
-import { Tablet, Laptop } from '@/lib/media'
+import { Laptop, Tablet } from '@/lib/media'
 import { Button } from '@ui/button/button'
 import { IconLabel } from '@ui/icon-label/icon-label'
 import { Link } from '@ui/link/link'

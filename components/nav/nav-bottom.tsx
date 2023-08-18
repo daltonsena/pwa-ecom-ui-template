@@ -1,5 +1,5 @@
 import MenuIcon from '@material-design-icons/svg/outlined/menu.svg'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
 
 import { Laptop, Tablet } from '@/lib/media'
@@ -11,11 +11,11 @@ import { NavAutocomplete } from './nav-autocomplete'
 import { NavItem } from './nav-item'
 
 export function NavBottom() {
-  const router = useRouter()
+  const pathname = usePathname()
   const currentCategory = useMemo(() => {
-    const { pathname } = parseUrl(router?.asPath)
-    return pathname.match(/\/catalog\/(.[^/]*)\/?/)?.[1]
-  }, [router?.asPath])
+    const { pathname } = parseUrl(pathname)
+    return pathname?.match(/\/catalog\/(.[^/]*)\/?/)?.[1]
+  }, [pathname])
 
   const genderSubCategories = (
     <>

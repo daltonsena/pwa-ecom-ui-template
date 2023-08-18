@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import Image from 'next/image'
+import LegacyImage from 'next/legacy/image'
 import { useCallback, useState } from 'react'
 
 import { useIsMounted } from '@/hooks/useIsMounted'
@@ -21,7 +21,7 @@ export function ProductImage({ src, alt = '', className }: ProductImageProps) {
 
   return (
     <div className={classNames('bg-neutral-lightest', className)}>
-      <Image
+      <LegacyImage
         src={src}
         alt={alt}
         layout="responsive"

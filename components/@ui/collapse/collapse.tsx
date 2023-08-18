@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import type { Variants } from 'framer-motion'
-import { useReducedMotion, m } from 'framer-motion'
+import { m, useReducedMotion } from 'framer-motion'
 
 export type CollapseProps = {
   isCollapsed: boolean

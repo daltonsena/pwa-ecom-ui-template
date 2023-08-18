@@ -3,8 +3,8 @@ import isEqual from 'react-fast-compare'
 import type { CurrentRefinementsProvided } from 'react-instantsearch-core'
 import { connectCurrentRefinements } from 'react-instantsearch-dom'
 
-import { Dropdown } from '@/components/@ui/dropdown/dropdown'
 import type { DropdownProps } from '@/components/@ui/dropdown/dropdown'
+import { Dropdown } from '@/components/@ui/dropdown/dropdown'
 import { useCurrentRefinementCount } from '@instantsearch/hooks/useCurrentRefinementCount'
 
 export type RefinementsDropdownProps = CurrentRefinementsProvided &

@@ -1,6 +1,6 @@
 import { atom } from 'jotai'
 import { selectAtom, useAtomValue } from 'jotai/utils'
-import { useRouter } from 'next/router'
+import { usePathname, useRouter } from 'next/navigation'
 import { useCallback, useEffect, useMemo } from 'react'
 import type { SearchState } from 'react-instantsearch-core'
 
@@ -13,9 +13,9 @@ import { useDeepUpdateAtom } from '@/hooks/useDeepUpdateAtom'
 import { isomorphicWindow } from '@/utils/browser'
 import { scrollToTop } from '@/utils/scrollToTop'
 import {
+  createURL,
   searchStateToUrl,
   urlToSearchState,
-  createURL,
 } from '@instantsearch/utils/url'
 
 // Atoms
@@ -29,11 +29,12 @@ export const searchQueryAtom = selectAtom<SearchState, string | undefined>(
 )
 
 export function useUrlSync() {
+  const pathname = usePathname()
   // Router
   const router = useRouter()
   const isCatalogPage = useMemo(
-    () => router?.pathname === '/catalog/[[...slugs]]',
-    [router?.pathname]
+    () => pathname === '/catalog/[[...slugs]]',
+    [pathname]
   )
 
   // Internal search state
@@ -54,11 +55,11 @@ export function useUrlSync() {
       if (!isCatalogPage) return
 
       const newRoute = `/catalog${searchStateToUrl(nextSearchState)}`
-      if (router.asPath !== newRoute) {
+      if (pathname !== newRoute) {
         router.push(newRoute, newRoute, { shallow: true })
       }
     },
-    [router?.asPath] // eslint-disable-line react-hooks/exhaustive-deps
+    [pathname] // eslint-disable-line react-hooks/exhaustive-deps
   )
 
   const { url: urlConfig } = useAtomValue(configAtom)

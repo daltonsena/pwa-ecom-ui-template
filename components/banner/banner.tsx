@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import type { ImageProps } from 'next/image'
-import Image from 'next/image'
+import type { ImageProps } from 'next/legacy/image'
+import LegacyImage from 'next/legacy/image'
 import { useCallback, useState } from 'react'
 
 import { Container } from '@/components/container/container'
@@ -76,7 +76,7 @@ export function Banner({
         )}
       >
         {image && (
-          <Image
+          <LegacyImage
             src={image}
             alt={imageAlt}
             layout="fill"
