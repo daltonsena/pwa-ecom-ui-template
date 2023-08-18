@@ -1,7 +1,7 @@
 import type {
+  Refinement as ISRefinement,
   RangeInputRefinement,
   RatingMenuRefinement,
-  Refinement as ISRefinement,
 } from 'react-instantsearch-core'
 
 import type { Config } from '@/config/config'

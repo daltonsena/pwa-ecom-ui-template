@@ -28,10 +28,10 @@ export function Link({
     <NextLink
       {...{ href, as, replace, scroll, shallow, prefetch, locale }}
       scroll={false}
+      role="link"
+      tabIndex={0}
     >
-      <a role="link" tabIndex={0} {...anchorProps}>
-        {children}
-      </a>
+      {children}
     </NextLink>
   )
 }

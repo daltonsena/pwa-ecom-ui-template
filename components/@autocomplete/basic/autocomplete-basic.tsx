@@ -5,7 +5,7 @@ import type {
 import type { SearchClient } from 'algoliasearch/lite'
 import { atom } from 'jotai'
 import { useAtomValue, useUpdateAtom } from 'jotai/utils'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { memo, useCallback, useEffect, useMemo } from 'react'
 import type { SearchState } from 'react-instantsearch-core'
 
@@ -47,8 +47,8 @@ function AutocompleteBasicComponent({
   onFocusBlur,
   ...props
 }: AutocompleteBasicProps) {
-  const router = useRouter()
-  const isHomePage = useMemo(() => router?.pathname === '/', [router?.pathname])
+  const pathname = usePathname()
+  const isHomePage = useMemo(() => pathname === '/', [pathname])
   const { autocomplete: autocompleteConfig } = useAtomValue(configAtom)
 
   const _setSearchState = useUpdateAtom(searchStateAtom)

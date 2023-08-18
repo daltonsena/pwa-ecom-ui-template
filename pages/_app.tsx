@@ -1,7 +1,8 @@
+import { Metadata } from 'next'
+
 import { AnimatePresence } from 'framer-motion'
 import type { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
-import Head from 'next/head'
 import Script from 'next/script'
 import { useMemo } from 'react'
 
@@ -20,6 +21,11 @@ import { gaTrackingId, isDev, isProd } from '@/utils/env'
 import { scrollToTop } from '@/utils/scrollToTop'
 
 import '@/styles/_index.css'
+export const metadata: Metadata = {
+  title: `Spencer and Williams`,
+  viewport:
+    'width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover',
+}
 
 export const Header = dynamic<HeaderProps>(() =>
   import(/* webpackChunkName: 'common' */ '@/components/header/header').then(
@@ -34,6 +40,7 @@ export const Footer = dynamic<FooterProps>(() =>
 )
 
 export default function App({ Component, pageProps, router }: AppProps) {
+  const router = useRouter()
   const isCatalogPage = useMemo(
     () => router?.pathname === '/catalog/[[...slugs]]',
     [router?.pathname]
@@ -41,14 +48,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
   return (
     <AppLayout>
-      <Head>
-        <title>Spencer and Williams</title>
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"
-        />
-      </Head>
-
       {/* Google Analytics */}
       {isProd && (
         <>

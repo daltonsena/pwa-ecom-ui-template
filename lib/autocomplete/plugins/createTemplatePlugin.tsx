@@ -12,14 +12,14 @@ type CreateTemplatePluginProps = {
 
 type CustomAutocompletePlugin<
   TItem extends BaseItem,
-  TData
+  TData,
 > = AutocompletePlugin<TItem, TData> & {
   unsubscribe?: () => void
 }
 
 export function createTemplatePlugin<
   TItem extends Record<string, unknown>,
-  TData
+  TData,
 >({
   container,
   render,

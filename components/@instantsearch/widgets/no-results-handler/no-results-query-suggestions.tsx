@@ -3,7 +3,7 @@ import { useAtomValue, useUpdateAtom } from 'jotai/utils'
 import { memo, useCallback } from 'react'
 import isEqual from 'react-fast-compare'
 import type { HitsProvided } from 'react-instantsearch-core'
-import { Configure, connectHits, Index } from 'react-instantsearch-dom'
+import { Configure, Index, connectHits } from 'react-instantsearch-dom'
 
 import { Button } from '@/components/@ui/button/button'
 import { Icon } from '@/components/@ui/icon/icon'

@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
 
 import { Link } from '@ui/link/link'
@@ -9,12 +9,9 @@ export type NavItemProps = {
 }
 
 export function NavItem({ label, href = '' }: NavItemProps) {
-  const router = useRouter()
+  const pathname = usePathname()
 
-  const isSelected = useMemo(
-    () => router?.asPath.startsWith(href),
-    [router?.asPath, href]
-  )
+  const isSelected = useMemo(() => pathname?.startsWith(href), [pathname, href])
 
   const labelLowercase = useMemo(
     () => encodeURIComponent(label.toLowerCase()),

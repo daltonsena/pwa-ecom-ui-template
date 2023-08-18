@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { atom } from 'jotai'
 import { useAtomValue } from 'jotai/utils'
 import type { ReactNode } from 'react'
-import { useState, useCallback } from 'react'
+import { useCallback, useState } from 'react'
 
 export type DebugLayerProps = {
   children: ReactNode

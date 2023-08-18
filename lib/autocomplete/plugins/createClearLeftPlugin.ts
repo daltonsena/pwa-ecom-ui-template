@@ -1,7 +1,7 @@
 import type { BaseItem } from '@algolia/autocomplete-core'
 import type {
-  OnStateChangeProps,
   AutocompletePlugin,
+  OnStateChangeProps,
 } from '@algolia/autocomplete-js'
 
 type CreateClearLeftPluginProps = {
@@ -10,14 +10,14 @@ type CreateClearLeftPluginProps = {
 
 type CustomAutocompletePlugin<
   TItem extends BaseItem,
-  TData
+  TData,
 > = AutocompletePlugin<TItem, TData> & {
   unsubscribe?: () => void
 }
 
 export function createClearLeftPlugin<
   TItem extends Record<string, unknown>,
-  TData
+  TData,
 >({
   initialQuery = '',
 }: CreateClearLeftPluginProps = {}): CustomAutocompletePlugin<TItem, TData> {

@@ -1,5 +1,5 @@
 import type { GetServerSidePropsContext } from 'next'
-import { Hits, Configure } from 'react-instantsearch-dom'
+import { Configure, Hits } from 'react-instantsearch-dom'
 
 import { Container } from '@/components/container/container'
 import { ProductDetailHit } from '@/components/product-detail/product-detail-hit'
