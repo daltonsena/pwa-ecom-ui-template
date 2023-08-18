@@ -30,6 +30,7 @@ export function Link({
       scroll={false}
       role="link"
       tabIndex={0}
+      legacyBehavior
     >
       {children}
     </NextLink>
